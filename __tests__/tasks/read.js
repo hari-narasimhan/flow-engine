@@ -1,7 +1,7 @@
 const Task = require('../../index').Task
 
 class Read extends Task {
-  async run ({node, context, message} = {}) {
+  async run ({ task, context, message } = {}) {
     return { done: true, async: false }
   }
 }
