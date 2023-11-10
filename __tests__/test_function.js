@@ -1,5 +1,6 @@
 const FlowEngine = require('../index').FlowEngine
 const Print = require('./tasks/print')
+const { REMOTE_CONNECTION_STRING } = require('./config')
 
 const complexFlow = {
   tasks: [
@@ -57,7 +58,7 @@ const complexFlow = {
     { source: 'second', target: 'fifth', path: 'end' }
   ]
 }
-const context = { REMOTE_CONNECTION_STRING: 'postgres://aw_app_role:password@localhost:5432/adventure_works' }
+const context = { REMOTE_CONNECTION_STRING }
 const flowEngine = new FlowEngine({
   flow: complexFlow,
   context,
