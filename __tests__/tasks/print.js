@@ -2,7 +2,7 @@
 const Task = require('../../index').Task
 
 class Print extends Task {
-  _print (task, message) {
+  _print (task, ctx) {
     // eslint-disable-next-line no-eval
     return eval('`' + task.props.message + '`')
   }

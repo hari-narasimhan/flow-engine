@@ -26,7 +26,7 @@ const complexFlow = {
     { source: 'start', target: 'first' }
   ]
 }
-const context = { REMOTE_CONNECTION_STRING: 'postgres://harinarasimhan:@localhost:5432/adventure_works' }
+const context = { REMOTE_CONNECTION_STRING: 'postgres://aw_app_role:password@localhost:5432/adventure_works' }
 const flowEngine = new FlowEngine({
   flow: complexFlow,
   context,

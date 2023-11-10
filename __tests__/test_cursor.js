@@ -18,14 +18,14 @@ const complexFlow = {
       id: 'first',
       name: 'firstTask',
       type: 'cursor',
-      props: { query: 'SELECT firstname, lastname FROM person.person ORDER BY firstname LIMIT 1000', maxRows: 1 }
+      props: { query: 'SELECT firstname, lastname FROM person.person ORDER BY firstname LIMIT 10', maxRows: 1 }
     },
     {
       id: 'second',
       name: 'secondTask',
       type: 'print',
       // eslint-disable-next-line no-template-curly-in-string
-      props: { message: '${message.timesRun + 1} processing person ${message.rows[0].firstname} ${message.rows[0].lastname}' }
+      props: { message: '${ctx.timesRun + 1} processing person ${ctx.rows[0].firstname} ${ctx.rows[0].lastname}' }
     }
     // {
     //     id: 'third',
@@ -41,7 +41,7 @@ const complexFlow = {
     // { source: 'first', target: 'third', path: 'end'}
   ]
 }
-const context = { REMOTE_CONNECTION_STRING: 'postgres://harinarasimhan:@localhost:5432/adventure_works' }
+const context = { REMOTE_CONNECTION_STRING: 'postgres://aw_app_role:password@localhost:5432/adventure_works' }
 const flowEngine = new FlowEngine({
   flow: complexFlow,
   context,

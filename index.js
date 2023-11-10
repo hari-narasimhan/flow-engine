@@ -1,4 +1,4 @@
-const FlowEngine = require('./lib/FlowEngine')
+const FlowEngine = require('./lib/flowEngine')
 exports.FlowEngine = FlowEngine
 
 const CursorTask = require('./lib/coreTasks/CursorTask')

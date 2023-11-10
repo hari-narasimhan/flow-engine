@@ -13,7 +13,7 @@ const complexFlow = {
       id: 'second',
       name: 'second',
       type: 'cursor',
-      props: { query: 'SELECT firstname, lastname FROM person.person ORDER BY firstname', maxRows: 1000 }
+      props: { query: 'SELECT firstname, lastname FROM person.person ORDER BY firstname LIMIT 10', maxRows: 1 }
     },
     {
       id: 'third',
@@ -23,11 +23,11 @@ const complexFlow = {
         params: [{
           name: 'firstName',
           type: 'string',
-          value: 'message.rows[0].firstname'
+          value: 'ctx.rows[0].firstname'
         }, {
           name: 'lastName',
           type: 'string',
-          value: 'message.rows[0].lastname'
+          value: 'ctx.rows[0].lastname'
         }],
         scriptLanguage: 'javascript',
         script: 'let fullName = firstName + \' \' + lastName; return {fullName, score: Math.floor(Math.random() * 100)};',
@@ -39,7 +39,7 @@ const complexFlow = {
       name: 'fourthTask',
       type: 'print',
       // eslint-disable-next-line no-template-curly-in-string
-      props: { message: 'full name is ${message.result.fullName}, score is ${message.result.score}' }
+      props: { message: 'full name is ${ctx.result.fullName}, score is ${ctx.result.score}' }
     },
     {
       id: 'fifth',
@@ -57,7 +57,7 @@ const complexFlow = {
     { source: 'second', target: 'fifth', path: 'end' }
   ]
 }
-const context = { REMOTE_CONNECTION_STRING: 'postgres://harinarasimhan:@localhost:5432/adventure_works' }
+const context = { REMOTE_CONNECTION_STRING: 'postgres://aw_app_role:password@localhost:5432/adventure_works' }
 const flowEngine = new FlowEngine({
   flow: complexFlow,
   context,
