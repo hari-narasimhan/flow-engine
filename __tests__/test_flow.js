@@ -9,14 +9,14 @@ const complexFlow = {
     {
       id: 'first',
       name: 'firstTask',
-      type: 'read',
+      type: 'start',
       props: {}
     },
     {
       id: 'second',
       name: 'secondTask',
       type: 'readApi',
-      props: { url: 'https://randomuser.me/api/?gender=female' }
+      props: { url: 'https://randomuser.me/api/' }
     },
     {
       id: 'third',
@@ -34,14 +34,12 @@ const complexFlow = {
       id: 'fifth',
       name: 'fifthTask',
       type: 'print',
-      path: 'true',
       props: { message: 'the user is male' }
     },
     {
       id: 'sixth',
       name: 'sixthTask',
       type: 'print',
-      path: 'false',
       props: { message: 'the user is female' }
     }
   ],

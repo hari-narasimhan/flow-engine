@@ -30,7 +30,6 @@ const complexFlow = {
       id: 'third',
       name: 'thirdTask',
       type: 'readApi',
-      path: 'loop',
       props: { url: 'https://randomuser.me/api/' }
     },
     {
@@ -43,7 +42,6 @@ const complexFlow = {
       id: 'fifth',
       name: 'fifthTask',
       type: 'print',
-      path: 'end',
       props: { message: 'loop completed' }
     }
   ],
