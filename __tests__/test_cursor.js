@@ -19,7 +19,7 @@ const complexFlow = {
       id: 'first',
       name: 'firstTask',
       type: 'cursor',
-      props: { query: 'SELECT firstname, lastname FROM person.person ORDER BY firstname LIMIT 10', maxRows: 1 }
+      props: { query: 'SELECT firstname, lastname FROM person.person ORDER BY firstname', maxRows: 1 }
     },
     {
       id: 'second',
