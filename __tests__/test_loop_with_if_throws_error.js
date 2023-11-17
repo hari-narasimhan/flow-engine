@@ -1,10 +1,5 @@
 const FlowEngine = require('../index').FlowEngine
-const Read = require('./tasks/read')
-const ReadAsync = require('./tasks/readAsync')
-const ReadApi = require('./tasks/readApi')
 const Print = require('./tasks/print')
-const IfTask = require('./tasks/if')
-const Loop = require('./tasks/loop')
 
 const complexFlow = {
   tasks: [
@@ -79,13 +74,13 @@ const context = {}
 const flowEngine = new FlowEngine({
   flow: complexFlow,
   context,
-  tasks: { read: new Read(), readAsync: new ReadAsync(), readApi: new ReadApi(), print: new Print(), if: new IfTask(), loop: new Loop() }
+  tasks: { print: new Print() }
 })
+
 const runtime = flowEngine.run()
+
 runtime.on('end', (result) => {
   console.log(JSON.stringify(result, undefined, 2))
-  // console.log('result', result)
-  // expect(result.message).toEqual({ done: true, async: false })
   console.log('done')
   // done()
 })
